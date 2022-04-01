@@ -1,10 +1,12 @@
 import React from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ getGifs, handleInput }) => {
 	return (
 		<div>
-			<input type="text" id="title" name="title" placeholder="Search here" />
-			<button>Search</button>
+			<form onSubmit={getGifs}>
+				<input onChange={handleInput} />
+				<button type="submit">Search</button>
+			</form>
 		</div>
 	);
 };

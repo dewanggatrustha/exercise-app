@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Gif from "../../components/gif";
+import SearchBar from "../../components/searchbar";
 
 const Search = () => {
 	const [gifs, setGifs] = useState([]);
 	const [text, setText] = useState("");
 
-	useEffect(() => {}, []);
+	// useEffect(() => {}, []);
 
 	const handleInput = (e) => {
 		setText(e.target.value);
@@ -21,10 +22,12 @@ const Search = () => {
 	};
 	return (
 		<>
-			<form onSubmit={(e) => getGifs(e)}>
-				<input onChange={(e) => handleInput(e)} />
+			{/* <form onSubmit={getGifs}>
+				<input onChange={handleInput} />
 				<button type="submit">Search</button>
-			</form>
+			</form> */}
+
+			<SearchBar getGifs={getGifs} handleInput={handleInput} />
 
 			{gifs !== [] &&
 				gifs.map((g) => (
@@ -34,4 +37,4 @@ const Search = () => {
 	);
 };
 
-export { Search };
+export default Search;
